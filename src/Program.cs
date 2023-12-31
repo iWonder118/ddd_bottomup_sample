@@ -1,4 +1,4 @@
-﻿String filename = "i wonder";
+﻿String filename = "john smith";
 String[] tokens = filename.Split(" ");
 String lastname = tokens[0];
 
