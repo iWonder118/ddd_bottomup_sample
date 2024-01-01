@@ -6,13 +6,24 @@ namespace Proceeded
     {
         public static void Primary()
         {
+            var userService = new UserService();
+
             var userId = new UserId("id");
             var userName = new UserName("iwonder");
             var user = new User(userId, userName);
 
-            // 生成したオブジェクト自身に問い合わせすることになる
-            var duplicateCheckResult = user.Exists(user);
-            Console.WriteLine(duplicateCheckResult);// ?
+            // 重複確認用インスタンスに問い合わせ
+            var duplicateCheckResult = userService.Exists(user);
+            Console.WriteLine(duplicateCheckResult);
+        }
+
+        class UserService
+        {
+            public bool Exists(User user)
+            {
+                // 重複を確認するコード
+                return true;
+            }
         }
 
         class UserId
@@ -49,12 +60,6 @@ namespace Proceeded
                 this.id = id;
                 this.name = name;
                 
-            }
-
-            public bool Exists(User user)
-            {
-                // 重複を確認するコード
-                return true;
             }
         }
     }
