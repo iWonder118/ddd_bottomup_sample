@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace Proceeded
 {
     internal class Program_2_5

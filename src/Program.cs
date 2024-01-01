@@ -3,6 +3,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Program_2_5.Primary();
+        Program_3_1.Primary();
     }
 }
