@@ -1,14 +1,18 @@
+using System.Runtime.CompilerServices;
+
 namespace Proceeded
 {
     internal class Program_2_5
     {
+        private User user;
         public static void Primary()
         {
-            User CreateUser(UserName name)
+            
+            void CreateUser(string name)
             {
-                var user = new User();
-                user.Id = name;
-                return user;
+                var userName = new UserName(name);
+                var user = new User(userName);
+
             }
         }
 
@@ -16,6 +20,12 @@ namespace Proceeded
         {
             public UserId Id {get; set;}
             public UserName Name {get; set;}
+
+            public User(UserName userName)
+            {
+                this.Name = userName;
+            }
+        
         }
         class UserName
         {
