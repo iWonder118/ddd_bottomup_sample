@@ -4,15 +4,40 @@ namespace Proceeded
     {
         public static void Primary()
         {
-            var userName = "me";
-
-            if (userName.Length >= 3)
+            User CreateUser(UserName name)
             {
-                // 正常な値
+                var user = new User();
+                user.Id = name;
+                return user;
             }
-            else
+        }
+
+        class User
+        {
+            public UserId Id {get; set;}
+            public UserName Name {get; set;}
+        }
+        class UserName
+        {
+            private readonly string value;
+
+            public UserName(string value)
             {
-                throw new Exception("異常な値です");
+                if (value == null) throw new ArgumentNullException(nameof(value));
+                if (value.Length < 3) throw new ArgumentException("ユーザ名は３文字以上です。", nameof(value));
+                this.value = value;
+            }
+        }
+
+        class UserId
+        {
+            private readonly string value;
+
+            public UserId(string value)
+            {
+                if (value == null) throw new ArgumentNullException(nameof(value));
+
+                this.value = value;
             }
         }
     }
