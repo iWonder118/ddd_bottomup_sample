@@ -1,4 +1,4 @@
-﻿internal class Program
+﻿internal class Program_2_2
 {
     private static void Main(string[] args)
     {
@@ -6,8 +6,8 @@
 
         static void Main()
         {
-            FullName nameA = new FullName("i", "wonder");
-            FullName nameB = new FullName("john", "smith");
+            FullName nameA = new FullName("i", "wonder", "");
+            FullName nameB = new FullName("john", "smith", "");
             
             bool compareResult = nameA.Equals(nameB);
             Console.WriteLine(compareResult);
@@ -21,21 +21,24 @@
 
 class FullName : IEquatable<FullName>
 {
-    public FullName(string firstName, string lastName)
+    public FullName(string firstName, string lastName, string middName)
     {
         FirstName = firstName;
         LastName = lastName;
+        MiddName = middName;
     }
 
     public string FirstName { get; }
     public string LastName { get; }
+    public string MiddName { get; }
 
     public bool Equals(FullName other)
     {
         if (ReferenceEquals(null, other)) return false;
         if (ReferenceEquals(this, other)) return true;
         return string.Equals(FirstName, other.FirstName)
-            && string.Equals(LastName, other.LastName);
+            && string.Equals(LastName, other.LastName)
+            && string.Equals(MiddName, other.MiddName);
     }
 
     public override bool Equals(object obj)
